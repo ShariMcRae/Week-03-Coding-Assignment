@@ -100,18 +100,16 @@ nameLengths.push(77);
 console.log("\nTest 3: nameLengths", nameLengths);
 console.log("sumGreaterThan100(nameLengths)", sumGreaterThan100(nameLengths));
 
-
 console.log("\n10.	Write a function that takes an array of numbers and returns the average of all the ");
 console.log("\telements in the array.");
 function average(arrayOfNumbers) {
     let total = 0;
     for (let number of arrayOfNumbers)
         total += number;
-    console.log("average returning", total/arrayOfNumbers.length);
     return total/arrayOfNumbers.length;
 }
 
-console.log("\naverage([5, 5, 6, 6, 7, 7])", average([5, 5, 6, 6, 7, 7]));
+console.log("\naverage([1, 2, 3])", average([1, 2, 3]));
 
 console.log("\n11.	Write a function that takes two arrays of numbers and returns true if the average of the");
 console.log("\telements in the first array is greater than the average of the elements in the second array.\n\n");
@@ -134,7 +132,6 @@ function willBuyDrink(isHotOutside, moneyInPocket) {
 console.log("willBuyDrink(true, 10.5)", willBuyDrink(true, 10.5));
 console.log("willBuyDrink(true, 11)", willBuyDrink(true, 11));
 console.log("willBuyDrink(true, 10)", willBuyDrink(true, 10));
-console.log("willBuyDrink(true, 10.5)", willBuyDrink(true, 10.5));
 console.log("willBuyDrink(false, 11)", willBuyDrink(false, 11));
 console.log("willBuyDrink(false, 10)", willBuyDrink(false, 10));
 
@@ -143,18 +140,15 @@ console.log("\tIn comments, write what the function does and why you created it.
 
 // Function that takes 2 arrays of numbers and returns true if the average of the numbers
 // in the second array is larger than the average of the numbers in the first array.
-// I wrote this function because I was curious about whether the internal call to
-// function average() would reference the nested function or the external identical function
-// having the same name and arguments.
+// I wrote this function to test the use of nested functions.
 function secondAverageGreater(arrayOfNumbers1, arrayOfNumbers2) {
-    function average(arrayOfNumbers) {
+    function nestedAverage(arrayOfNumbers) {
         let total = 0;
         for (let number of arrayOfNumbers)
             total += number;
-        console.log("Nested average returning", total/arrayOfNumbers.length);
         return total/arrayOfNumbers.length;
     }
-    return average(arrayOfNumbers2) > average(arrayOfNumbers1);
+    return nestedAverage(arrayOfNumbers2) > nestedAverage(arrayOfNumbers1);
 }
 console.log("secondAverageGreater([1, 2, 3], [4, 5, 6])", secondAverageGreater([1, 2, 3], [4, 5, 6]));
 
